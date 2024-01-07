@@ -1,3 +1,5 @@
+let tentativa = 0;
+
 function alterarStatus(id) {
     let gameClicado = document.getElementById(`game-${id}`);
     let imagem = gameClicado.querySelector(".dashboard__item__img");
@@ -11,5 +13,8 @@ function alterarStatus(id) {
         botao.innerHTML = "Alugar";
         imagem.classList.remove("dashboard__item__img--rented");
         botao.classList.remove("dashboard__item__button--return");
+        tentativa = tentativa + 1;
+        let palavraJogo = tentativa > 1 ? "jogos" : "jogo";
+        alert(`O jogo foi devolvido, você já devolveu ${tentativa} ${palavraJogo}.`);
     }
 }
